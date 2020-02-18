@@ -31,6 +31,25 @@ $router->add('posts/new', [
 //display the routing table
 echo '<pre>';
 var_dump($router->getRoutes());
-echo '<pre>';
+echo '</pre>';
+
+echo "<br>";
+
+//match the requested route
+$url = $_SERVER['QUERY_STRING'];
+
+
+if($router->match($url))
+{
+	echo '<pre>';
+	var_dump($router->getParams());
+	echo '</pre>';
+}
+else
+{
+	echo "No route found for URL '$url'";
+}
+
+
 
  ?>
